@@ -5,6 +5,7 @@ import mutations from './mutations';
 const defaultState = {
   pokemon: {},
   pokemonError: '',
+  pokemonDigest: {},
 }
 
 const inBrowser = typeof window !== 'undefined';

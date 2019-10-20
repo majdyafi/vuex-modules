@@ -1,12 +1,26 @@
 import axios from 'axios'
+import defaultState from '../../defaultState'
 
 export default {
+  nuxtServerInit ({ commit }, { req }) {
+    commit('set_default_pokemon_state');
+  },
   callThePokemon: ({ commit }, id) => {
 
-    console.log('I make the call here')
-    
+    let pokemonDigest = defaultState.pokemonDigest;
+
     axios.get('http://pokeapi.salestock.net/api/v2/pokemon/' + id)
-    .then(response => commit('update_pokemon', response.data))
-    .catch((response) => commit('update_pokemon_error', response.message))
+      .then(({data}) => {
+        pokemonDigest = {
+          data: data,
+        }
+      })
+      .catch(({message}) => {
+        pokemonDigest = {
+          hasErrored: true,
+          error: message,
+        }
+      })
+      .finally(() => commit('update_pokemon_digest', pokemonDigest))
   }
 }

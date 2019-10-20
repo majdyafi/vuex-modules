@@ -1,10 +1,8 @@
 import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
+import defaultState from '../../defaultState'
 
-const defaultState = {
-  machin: 'truc'
-}
 
 const inBrowser = typeof window !== 'undefined';
 // if in browser, use pre-fetched state injected by SSR

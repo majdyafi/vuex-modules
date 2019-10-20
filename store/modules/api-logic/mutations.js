@@ -1,9 +1,10 @@
+import defaultState from '../../defaultState'
+
 export default {
-    update_pokemon: (state, pokemon) => {
-      state.pokemon = pokemon
+    update_pokemon_digest: (state, digest) => {
+      state.pokemonDigest = digest;
     },
-    update_pokemon_error: (state, err) => {
-      state.pokemon = '';
-      state.pokemonError = err;
-    },
+    set_default_pokemon_state: (state) => {
+      state.pokemonDigest = defaultState.pokemonDigest;
+    }
   };
