@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Example Nuxt + vuex module </h1>
-        <p>{{ pokemon.name }}</p>
+        <p>{{ pokemon.name || pokemonError }}</p>
     </div>
 </template>
 
@@ -12,7 +12,8 @@ export default {
   computed: {
     ...mapGetters({
         bidule: 'bidule',
-        pokemon: 'getPokemon'
+        pokemon: 'getPokemon',
+        pokemonError: 'getPokemonError',
     })
   },
   mounted() {

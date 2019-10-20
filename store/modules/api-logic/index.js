@@ -3,7 +3,8 @@ import getters from './getters';
 import mutations from './mutations';
 
 const defaultState = {
-  pokemon: {}
+  pokemon: {},
+  pokemonError: '',
 }
 
 const inBrowser = typeof window !== 'undefined';
